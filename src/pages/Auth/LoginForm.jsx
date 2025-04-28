@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
@@ -114,6 +116,7 @@ export default function LoginForm() {
           <button
             type="submit"
             className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-700 text-white font-medium rounded-lg hover:opacity-90 transition-all transform hover:-translate-y-1 hover:shadow-lg"
+          
           >
             Sign In
           </button>
@@ -151,7 +154,7 @@ export default function LoginForm() {
         {/* Sign Up Link */}
         <div className="text-center text-gray-600 text-sm">
           Don't have an account?{' '}
-          <a href="#" className="text-purple-700 font-semibold hover:underline">
+          <a href="#" className="text-purple-700 font-semibold hover:underline"   onClick={()=>{navigate('/signup')}}>
             Sign up
           </a>
         </div>
