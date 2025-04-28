@@ -43,7 +43,7 @@ export default function LoginForm() {
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-700 rounded-full flex justify-center items-center text-white text-2xl font-bold">
-            A
+            e
           </div>
         </div>
         
