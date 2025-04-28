@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Paper, Typography, TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -31,7 +33,9 @@ const SignUp = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop:'150px',
           mb: 6,
+          padding:"20px"
 
         }}
       >
@@ -47,9 +51,7 @@ const SignUp = () => {
             borderRadius: "20px",
             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.75)",
             width: "100%",
-            maxWidth: 460,
-            maxHeight:800,
-            alignSelf:"center",
+            maxWidth: 500,
             color: "white",
           }}
         >
@@ -110,10 +112,12 @@ const SignUp = () => {
                 mt:3,
                 fontWeight: 600,
               }}
+              
             >
               Sign Up
             </Button>
-            <Typography
+            <Typography>already have an account? <Button onClick={()=>{navigate('/login')}}>Sign in</Button></Typography>
+            {/* <Typography
               sx={{
                 textAlign: "right",
                 fontSize: 14,
@@ -124,7 +128,7 @@ const SignUp = () => {
               }}
             >
               Forgot password?
-            </Typography>
+            </Typography> */}
           </Box>
         </Paper>
       </Box>
