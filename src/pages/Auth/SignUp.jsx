@@ -21,7 +21,7 @@ const SignUp = () => {
 
             src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
             alt="Netflix Logo"
-            style={{ width: 120, margin: 50 ,}}
+            style={{ width: 120, marginLeft: 50 , padding:20}}
           />
 
 
@@ -32,7 +32,6 @@ const SignUp = () => {
           justifyContent: "center",
           alignItems: "center",
           mb: 6,
-          marginTop:"40px"
 
         }}
       >
@@ -48,7 +47,9 @@ const SignUp = () => {
             borderRadius: "20px",
             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.75)",
             width: "100%",
-            maxWidth: 360,
+            maxWidth: 460,
+            maxHeight:800,
+            alignSelf:"center",
             color: "white",
           }}
         >
