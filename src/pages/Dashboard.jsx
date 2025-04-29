@@ -3,10 +3,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import NorthOutlinedIcon from "@mui/icons-material/NorthOutlined";
+import DataTable from "../components/DataTable";
 const Dashboard = () => {
     const navigate = useNavigate()
   return (
-    <section className="bg-[#EEF2F5] h-[100vh]">
+    <section className="bg-[#EEF2F5] h-[100vh] ">
       <nav className="flex justify-between items-center py-6 px-[6%] bg-white">
         <h1 className="text-xl font-bold">Bank Complaints</h1>
         <ul className="flex gap-4 list-none text-[18px]">
@@ -71,6 +72,7 @@ const Dashboard = () => {
           </div>
         </div>
       </article>
+      <DataTable />
     </section>
   );
 };

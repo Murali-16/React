@@ -17,7 +17,7 @@ import {
 
 const DataTable = () => {
   return (
-    <Box sx={{ p: 4, backgroundColor: "#f2f6f9", minHeight: "100vh" }}>
+    <Box sx={{ p: 4, backgroundColor: "#f2f6f9", minHeight: "100vh" ,paddingLeft:'6%',paddingRight:'6%'}}>
       {/* <Box sx={{ mb: 2 }}>
         <Typography variant="h6">Complaints ( 258 )</Typography>
         <Typography variant="body2" color="text.secondary">
@@ -50,18 +50,18 @@ const DataTable = () => {
             + Add Complaint
           </Button>
         </Stack> */}
-        <Button variant="outlined"> + Add Complaint</Button>
+        <Button variant="outlined" sx={{fontSize:'18px',textAlign:'center',color:'#000',border:'1px solid #000'}}> + Add Complaint</Button>
       </Box>
 
-      <TableContainer component={Paper} sx={{ mt: 3}}>
+      <TableContainer component={Paper} sx={{ mt: 3,height:'500px'}}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><b>Complaint Name</b></TableCell>
-              <TableCell><b>Complaint ID.</b></TableCell>
-              <TableCell><b>Nature of Complaint</b></TableCell>
-              <TableCell><b>Status</b></TableCell>
-              <TableCell><b>Type of Complaint</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Complaint Name</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Complaint ID.</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Nature of Complaint</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Status</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Type of Complaint</b></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
