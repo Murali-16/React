@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .form-box {
+    background-color:#eef2f5    ;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  .submit-btn {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #155a9c;
+  }
+  select{
+    margin: 20px 0px ;
+  }

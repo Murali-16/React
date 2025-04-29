@@ -4,6 +4,7 @@ import LoginForm from './pages/Auth/LoginForm'
 import SignUp from './pages/Auth/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import BankingComplaintForm from './components/ComplaintForm';
 import DataTable from './components/DataTable';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
       <Route path='/DataTable' element={<DataTable/>}/>
      </Routes>
      </BrowserRouter>
+     <BankingComplaintForm/>
+
     </>
   );
 }
