@@ -4,6 +4,7 @@ import LoginForm from './pages/Auth/LoginForm'
 import SignUp from './pages/Auth/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import BankingComplaintForm from './components/ComplaintForm';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>}/>
      </Routes>
      </BrowserRouter>
+     <BankingComplaintForm/>
+
     </>
   );
 }
