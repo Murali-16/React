@@ -1,8 +1,10 @@
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
+import NorthOutlinedIcon from "@mui/icons-material/NorthOutlined";
 const Dashboard = () => {
+    const navigate = useNavigate()
   return (
     <section className="bg-[#EEF2F5] h-[100vh]">
       <nav className="flex justify-between items-center py-6 px-[6%] bg-white">
@@ -21,24 +23,51 @@ const Dashboard = () => {
             <Link to="/language">Select Language</Link>
           </li>
         </ul>
-        <Button sx={{ color: "#000", fontSize: "16px" }}>Logout</Button>
+        <Button sx={{ color: "#000", fontSize: "16px" }} onClick={()=>{navigate('/login')}}>Logout</Button>
       </nav>
-      <article>
-        <div>
-          <div className="border-3 border-[#DEDEDE] rounded-xl p-[5px]">
+      <article className="px-[6%]">
+        <div className="flex justify-between py-[50px] gap-[20px]">
+          <div className="border-3 border-[#DEDEDE] rounded-xl p-[20px] w-full bg-white flex flex-col justify-between h-[220px]">
             <InsertDriveFileOutlinedIcon
               sx={{ color: "#989898", fontSize: "3rem" }}
             />
+            <div>
+              <Typography variant="h6">Complaint Pending</Typography>
+              <div className="flex items-center justify-between">
+                <p className="text-2xl font-bold">258</p>
+                <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
+                  <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="border-3 border-[#DEDEDE] rounded-xl p-[5px]">
+          <div className="border-3 border-[#DEDEDE] rounded-xl p-[20px] w-full bg-white flex flex-col justify-between h-[220px]">
             <InsertDriveFileOutlinedIcon
               sx={{ color: "#989898", fontSize: "3rem" }}
             />
+            <div>
+              <Typography variant="h6">Complaint In Progress</Typography>
+              <div className="flex items-center justify-between">
+                <p className="text-2xl font-bold">258</p>
+                <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
+                  <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="border-3 border-[#DEDEDE] rounded-xl p-[5px]">
+          <div className="border-3 border-[#DEDEDE] rounded-xl p-[20px] w-full bg-white flex flex-col justify-between h-[220px]">
             <InsertDriveFileOutlinedIcon
               sx={{ color: "#989898", fontSize: "3rem" }}
             />
+            <div>
+              <Typography variant="h6">Complaint Closed</Typography>
+              <div className="flex items-center justify-between">
+                <p className="text-2xl font-bold">258</p>
+                <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
+                  <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </article>
