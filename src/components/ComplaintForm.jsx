@@ -24,7 +24,7 @@ const reducer = (state, action) => {
   }
 };
 
-const BankingComplaintForm = () => {
+const BankingComplaintForm = ({addComplaint}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleChange = (e) => {
@@ -38,6 +38,7 @@ const BankingComplaintForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addComplaint(state); 
     console.log("Submitted Data:", state);
   };
 
