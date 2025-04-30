@@ -15,7 +15,7 @@ import {
   Stack,
 } from "@mui/material";
 
-const DataTable = ({setOpenForm}) => {
+const DataTable = ({setOpenForm,complaintData}) => {
   return (
     <Box sx={{ p: 4, backgroundColor: "#f2f6f9", minHeight: "100vh" ,paddingLeft:'6%',paddingRight:'6%'}}>
       {/* <Box sx={{ mb: 2 }}>
