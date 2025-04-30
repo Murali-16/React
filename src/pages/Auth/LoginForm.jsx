@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -277,6 +278,9 @@ export default function SignIn() {
           >
             Log in
           </button>
+          <br />
+          <br />
+          <p>Don't have an account? <Button onClick={()=>{navigate('/signup')}}>Sign Up</Button></p>
       
       </div>
     </div>

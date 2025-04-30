@@ -194,6 +194,8 @@ export default function SignUp() {
             Sign Up
           </button>
         </form>
+        <br />
+        {/* <br /> */}
           <p>already have an account? <Button onClick={()=>{navigate('/')}}>Sign in</Button></p>
         {isRegistered && (
           <div className="mt-6 p-4 bg-green-100 rounded-lg text-center">
