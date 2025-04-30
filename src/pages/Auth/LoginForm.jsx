@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
+  const navigate = useNavigate(); // Initialize the navigator
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({
@@ -39,7 +41,7 @@ export default function SignIn() {
   // Load saved logins from localStorage on component mount
   useEffect(() => {
     try {
-      const storedLogins = localStorage.getItem('loginData');
+      const storedLogins = localStorage.getItem('signupData');
       if (storedLogins) {
         setSavedLogins(JSON.parse(storedLogins));
       }
@@ -48,80 +50,66 @@ export default function SignIn() {
     }
   }, []);
 
-  // Save login data to localStorage
-  const saveLoginData = (loginData) => {
-    try {
-      // Get existing logins or initialize empty array
-      const existingLogins = JSON.parse(localStorage.getItem('loginData')) || [];
+  // // Save login data to localStorage
+  // const saveLoginData = (loginData) => {
+  //   try {
+  //     // Get existing logins or initialize empty array
+  //     const existingLogins = JSON.parse(localStorage.getItem('signupData')) || [];
       
-      // Check if this email already exists
-      const emailExists = existingLogins.some(login => login.email === loginData.email);
+  //     // Check if this email already exists
+  //     const emailExists = existingLogins.some(login => login.email === loginData.email);
       
-      let updatedLogins;
-      if (emailExists) {
-        // Update existing login
-        updatedLogins = existingLogins.map(login => 
-          login.email === loginData.email ? {...login, ...loginData} : login
-        );
-        setStatusMessage('Login updated successfully');
-      } else {
-        // Add new login
-        updatedLogins = [...existingLogins, loginData];
-        setStatusMessage('Login saved successfully');
-      }
+  //     let updatedLogins;
+  //     if (emailExists) {
+  //       setStatusMessage('Login updated successfully');
+  //     } else {
+  //       // Add new login
+  //       updatedLogins = [...existingLogins, loginData];
+  //       setStatusMessage('Login saved successfully');
+  //     }
       
-      // Save to localStorage
-      localStorage.setItem('loginData', JSON.stringify(updatedLogins));
-      setSavedLogins(updatedLogins);
+  //     // Save to localStorage
+  //     localStorage.setItem('loginData', JSON.stringify(updatedLogins));
+  //     setSavedLogins(updatedLogins);
       
-      // Auto-hide status message after 3 seconds
-      setTimeout(() => setStatusMessage(''), 3000);
+  //     // Auto-hide status message after 3 seconds
+  //     setTimeout(() => setStatusMessage(''), 3000);
       
-      return true;
-    } catch (error) {
-      console.error('Error saving login data:', error);
-      setStatusMessage('Error saving login data');
-      return false;
-    }
-  };
-
-  //ke3biu3ebicivbc4r//
+  //     return true;
+  //   } catch (error) {
+  //     console.error('Error saving login data:', error);
+  //     setStatusMessage('Error saving login data');
+  //     return false;
+  //   }
+  // };
 
   // Handle form submission
   const handleSubmit = (e) => {
-    if (e) e.preventDefault();
-    
-    // Mark all fields as touched
-    setTouched({
-      email: true,
-      password: true
-    });
-    
-    // Validate all fields
+    e.preventDefault();
+
+    setTouched({ email: true, password: true });
+
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
-    
+
     setErrors({
       email: emailError,
       password: passwordError
     });
-    
-    // If no errors, proceed with form submission
+
     if (!emailError && !passwordError) {
-      // Create login data object
-      const loginData = {
-        email,
-        password: password, // In a real app, never store passwords in plaintext
-        timestamp: new Date().toISOString()
-      };
-      
-      // Save login data to JSON in localStorage
-      const saveSuccess = saveLoginData(loginData);
-      
-      if (saveSuccess) {
+      const matchedUser = savedLogins.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (matchedUser) {
         setIsLoggedIn(true);
-        console.log('Login successful:', loginData);
-        // Here you would typically make an API call to authenticate
+        setStatusMessage('Login successful!');
+        setTimeout(() => setStatusMessage(''), 3000);
+        navigate('/dashboard'); // 👉 navigate to another page (change to your desired path)
+      } else {
+        setStatusMessage('Invalid email or password');
+        setTimeout(() => setStatusMessage(''), 3000);
       }
     }
   };
@@ -283,49 +271,13 @@ export default function SignIn() {
             </button>
           </div>
         </div>
-
-        {!isLoggedIn ? (
           <button 
             onClick={handleSubmit}
             className="w-full py-3 mt-6 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Log in
           </button>
-        ) : (
-          <div className="mt-6 space-y-4">
-            <div className="p-4 bg-green-100 rounded-lg text-center">
-              <p className="text-green-700 font-medium">You are logged in as {email}</p>
-            </div>
-            
-            <button 
-              onClick={handleLogout}
-              className="w-full py-3 text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-            >
-              Log out
-            </button>
-          </div>
-        )}
-        
-        {savedLogins.length > 0 && (
-          <div className="mt-6 border-t pt-4">
-            <button 
-              onClick={() => setSavedLogins([])}
-              className="text-sm text-red-600 hover:text-red-800"
-            >
-              Clear saved logins
-            </button>
-            {renderSavedLogins()}
-          </div>
-        )}
-        
-        <div className="mt-6 border-t pt-4">
-          <h3 className="text-lg font-medium text-gray-800 mb-2">JSON Data Preview</h3>
-          <div className="bg-gray-100 p-3 rounded-lg overflow-x-auto">
-            <pre className="text-xs">
-              {JSON.stringify(savedLogins, null, 2)}
-            </pre>
-          </div>
-        </div>
+      
       </div>
     </div>
   );
