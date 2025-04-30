@@ -90,7 +90,7 @@ const Dashboard = () => {
       <DataTable setOpenForm={setOpenForm} complaintData={complaints} />
       {openForm && (
         <div className="fixed top-0 inset-0">
-          <BankingComplaintForm />
+          <BankingComplaintForm setOpenForm={setOpenForm}/>
         </div>
       )}
     </section>
