@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import NorthOutlinedIcon from "@mui/icons-material/NorthOutlined";
 import DataTable from "../components/DataTable";
+import BankingComplaintForm from "../components/ComplaintForm";
 const Dashboard = () => {
     const navigate = useNavigate()
   return (
@@ -73,6 +74,7 @@ const Dashboard = () => {
         </div>
       </article>
       <DataTable />
+      <BankingComplaintForm/>
     </section>
   );
 };

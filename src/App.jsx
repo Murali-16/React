@@ -14,7 +14,7 @@ function App() {
     <FormContext.Provider value=''>
     <BrowserRouter>
      <Routes>
-      <Route path='/login' element={<LoginForm/>}/>
+      <Route path='/' element={<LoginForm/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/complaints' element={<Dashboard/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
