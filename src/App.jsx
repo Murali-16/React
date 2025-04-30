@@ -24,7 +24,7 @@ function App() {
           <Route path='/complaints' element={<Dashboard />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/datatable' element={<DataTable />} />
-          <Route path='/complaint' element={<BankingComplaintForm addComplaint={addComplaint} />} /> {/* ✅ Fix passed prop */}
+          <Route path='/complaint' element={<BankingComplaintForm addComplaint={addComplaint} />} /> 
         </Routes>
       </BrowserRouter>
     </FormContext.Provider>
