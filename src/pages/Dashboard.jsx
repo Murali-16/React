@@ -1,13 +1,19 @@
 import { Button, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import NorthOutlinedIcon from "@mui/icons-material/NorthOutlined";
 import DataTable from "../components/DataTable";
 import BankingComplaintForm from "../components/ComplaintForm";
+import {FormContext} from "../context/FormContext"
 const Dashboard = () => {
-  const[openForm,setOpenForm] = useState(false)
-    const navigate = useNavigate()
+  const [openForm, setOpenForm] = useState(false);
+  const navigate = useNavigate();
+
+  const data = useContext(FormContext)
+  const complaints = data.complaintData
+  console.log('complaints',complaints)
+
   return (
     <section className="bg-[#EEF2F5] h-[100vh] ">
       <nav className="flex justify-between items-center py-6 px-[6%] bg-white">
@@ -26,7 +32,14 @@ const Dashboard = () => {
             <Link to="/language">Select Language</Link>
           </li>
         </ul>
-        <Button sx={{ color: "#000", fontSize: "16px" }} onClick={()=>{navigate('/login')}}>Logout</Button>
+        <Button
+          sx={{ color: "#000", fontSize: "16px" }}
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Logout
+        </Button>
       </nav>
       <article className="px-[6%]">
         <div className="flex justify-between py-[50px] gap-[20px]">
@@ -74,14 +87,12 @@ const Dashboard = () => {
           </div>
         </div>
       </article>
-      <DataTable setOpenForm={setOpenForm}/>
-      {
-        openForm && (
-          <div className="fixed top-0 inset-0">
-      <BankingComplaintForm/>
-      </div>
-        )
-      }
+      <DataTable setOpenForm={setOpenForm} complaintData={complaints} />
+      {openForm && (
+        <div className="fixed top-0 inset-0">
+          <BankingComplaintForm />
+        </div>
+      )}
     </section>
   );
 };
