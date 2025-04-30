@@ -57,15 +57,26 @@ const DataTable = ({setOpenForm,complaintData}) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Complaint Name</b></TableCell>
-              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Complaint ID.</b></TableCell>
-              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Nature of Complaint</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>FullName</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Email</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>AccountNumber</b></TableCell>
               <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Status</b></TableCell>
-              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>Type of Complaint</b></TableCell>
+              <TableCell sx={{fontSize:'18px',textAlign:'center'}}><b>TypeofComplaint</b></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* You can dynamically render rows here */}
+          {complaintData.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell align="center">{row.fullName}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.accountNumber}</TableCell>
+              <TableCell align="center">Pending</TableCell>
+              <TableCell align="center">{row.complaintType}</TableCell>
+            </TableRow>
+          ))}
           </TableBody>
         </Table>
       </TableContainer>

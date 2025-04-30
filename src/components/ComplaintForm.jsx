@@ -25,7 +25,7 @@ const reducer = (state, action) => {
   }
 };
 
-const BankingComplaintForm = () => {
+const BankingComplaintForm = ({setOpenForm}) => {
   const data = useContext(FormContext)
   const addComplaint = data.addComplaint
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -43,6 +43,7 @@ const BankingComplaintForm = () => {
     e.preventDefault();
     addComplaint(state); 
     console.log("Submitted Data:", state);
+    setOpenForm(false)
   };
 
   return (
@@ -148,7 +149,7 @@ const BankingComplaintForm = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" >
           Submit Complaint
         </button>
       </form>
