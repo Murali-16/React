@@ -15,7 +15,7 @@ import {
   Stack,
 } from "@mui/material";
 
-const DataTable = () => {
+const DataTable = ({setOpenForm}) => {
   return (
     <Box sx={{ p: 4, backgroundColor: "#f2f6f9", minHeight: "100vh" ,paddingLeft:'6%',paddingRight:'6%'}}>
       {/* <Box sx={{ mb: 2 }}>
@@ -50,7 +50,7 @@ const DataTable = () => {
             + Add Complaint
           </Button>
         </Stack> */}
-        <Button variant="outlined" sx={{fontSize:'18px',textAlign:'center',color:'#000',border:'1px solid #000'}}> + Add Complaint</Button>
+        <Button variant="outlined" sx={{fontSize:'18px',textAlign:'center',color:'#000',border:'1px solid #000'}} onClick={()=>{setOpenForm(true)}}> + Add Complaint</Button>
       </Box>
 
       <TableContainer component={Paper} sx={{ mt: 3,height:'500px'}}>
