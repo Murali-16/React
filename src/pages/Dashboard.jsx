@@ -1,11 +1,12 @@
 import { Button, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import NorthOutlinedIcon from "@mui/icons-material/NorthOutlined";
 import DataTable from "../components/DataTable";
 import BankingComplaintForm from "../components/ComplaintForm";
 const Dashboard = () => {
+  const[openForm,setOpenForm] = useState(false)
     const navigate = useNavigate()
   return (
     <section className="bg-[#EEF2F5] h-[100vh] ">
@@ -73,8 +74,14 @@ const Dashboard = () => {
           </div>
         </div>
       </article>
-      <DataTable />
+      <DataTable setOpenForm={setOpenForm}/>
+      {
+        openForm && (
+          <div className="fixed top-0 inset-0">
       <BankingComplaintForm/>
+      </div>
+        )
+      }
     </section>
   );
 };
