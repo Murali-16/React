@@ -1,0 +1,85 @@
+/* Sign.css */
+
+.signin-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EEF2F5;
+  padding: 1rem;
+}
+
+.signin-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.signin-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-button {
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-button:hover {
+  border-color: #007BFF;
+  transform: translateY(-2px);
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #888;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+@media (max-width: 600px) {
+  .signin-card {
+    padding: 1.5rem;
+  }
+
+  .signin-title {
+    font-size: 1.25rem;
+  }
+}
