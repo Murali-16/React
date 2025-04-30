@@ -131,7 +131,7 @@ const BankingComplaintForm = () => {
         >
           <option value="">Select Complaint Category</option>
           <option value="transaction">Transaction Issue</option>
-          <option value="atm">ATM / Cash Issue</option>
+          <option value="atm">ATM / Cash Issues</option>
           <option value="loan">Loan Related</option>
           <option value="service">Service Related</option>
         </select>
