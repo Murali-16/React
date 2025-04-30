@@ -1,5 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import "./ComplaintForm.css";
+import { FormContext } from "../context/FormContext";
 
 const initialState = {
   complaintType: "",
@@ -24,7 +25,9 @@ const reducer = (state, action) => {
   }
 };
 
-const BankingComplaintForm = ({addComplaint}) => {
+const BankingComplaintForm = () => {
+  const data = useContext(FormContext)
+  const addComplaint = data.addComplaint
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleChange = (e) => {
