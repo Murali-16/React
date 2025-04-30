@@ -1,13 +1,13 @@
-/* Sign.css */
-
-.signin-wrapper {
+.signup-wrapper {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #EEF2F5;
-  padding: 1rem;
+  padding: 16px;
 }
+
 
 .signin-card {
   width: 100%;
@@ -19,8 +19,8 @@
 }
 
 .signin-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 4rem;
+  font-weight: 900;
   margin-bottom: 1rem;
   color: #000;
 }
@@ -82,4 +82,20 @@
   .signin-title {
     font-size: 1.25rem;
   }
+}
+Typhography{
+position: absolute;
+width: 100px;
+height: 36px;
+left: 507px;
+top: 212.74px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 36px;
+
+color: #292929;
+
 }
