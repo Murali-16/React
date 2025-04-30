@@ -12,7 +12,6 @@ const Dashboard = () => {
 
   const data = useContext(FormContext)
   const complaints = data.complaintData
-  console.log('complaints',complaints)
 
   return (
     <section className="bg-[#EEF2F5] h-[100vh] ">
@@ -35,7 +34,7 @@ const Dashboard = () => {
         <Button
           sx={{ color: "#000", fontSize: "16px" }}
           onClick={() => {
-            navigate("/login");
+            navigate("/");
           }}
         >
           Logout
@@ -50,7 +49,7 @@ const Dashboard = () => {
             <div>
               <Typography variant="h6">Complaint Pending</Typography>
               <div className="flex items-center justify-between">
-                <p className="text-2xl font-bold">258</p>
+                <p className="text-2xl font-bold">{complaints.length}</p>
                 <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
                   <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
                 </span>
@@ -64,7 +63,7 @@ const Dashboard = () => {
             <div>
               <Typography variant="h6">Complaint In Progress</Typography>
               <div className="flex items-center justify-between">
-                <p className="text-2xl font-bold">258</p>
+                <p className="text-2xl font-bold">10</p>
                 <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
                   <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
                 </span>
@@ -78,7 +77,7 @@ const Dashboard = () => {
             <div>
               <Typography variant="h6">Complaint Closed</Typography>
               <div className="flex items-center justify-between">
-                <p className="text-2xl font-bold">258</p>
+                <p className="text-2xl font-bold">50</p>
                 <span className="flex items-center text-[18px] border border-[#000] rounded-full w-fit px-[10px] py-[2px]">
                   <NorthOutlinedIcon sx={{ fontSize: "16px" }} /> 20% More
                 </span>
