@@ -67,7 +67,7 @@ const DataTable = ({setOpenForm,complaintData}) => {
           <TableBody>
           {complaintData.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.fullName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell align="center">{row.fullName}</TableCell>
